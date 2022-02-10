@@ -34,10 +34,18 @@ class RandomWalk():
 
 import matplotlib.pyplot as plt
 #This part plots the movement of the Ant.
-rw = RandomWalk()
-rw.fill_walk()
-plt.scatter(rw.x_values, rw.y_values,c = "red", s=1)
-plt.title("Charting Random Ant Walk", fontsize=20, fontname='Comic Sans MS')
-plt.xlabel("X AXIS", fontsize=14)
-plt.ylabel("Y AXIS", fontsize=14)
-plt.show()
+while True:
+    rw = RandomWalk()
+    rw.fill_walk()
+    point_numbers = list(range(rw.num_points))
+    plt.scatter(rw.x_values, rw.y_values,c = point_numbers,cmap=plt.cm.Reds)
+    plt.title("Charting Random Ant Walk", fontsize=20, fontname='Times New Roman')
+    plt.xlabel("X AXIS", fontsize=14)
+    plt.ylabel("Y AXIS", fontsize=14)
+    plt.show()
+    
+    keep_running = input("Make another ant walk? (Y?N): ")
+    keep_running = keep_running.lower()
+    if keep_running == "n":
+        print("Thank you for participating in my program. - Cody ")
+        break
