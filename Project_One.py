@@ -2,7 +2,7 @@ from random import choice
 #Project 1 ("The Lost Ant")
 class RandomWalk():
     """A class to generate random walking of an Ant with no direction in particular."""
-    def __init__(self, num_points = 50000):
+    def __init__(self, num_points = 500000):
         self.num_points = num_points
         self.x_values = [0]
         self.y_values = [0]
@@ -38,7 +38,12 @@ while True:
     rw = RandomWalk()
     rw.fill_walk()
     point_numbers = list(range(rw.num_points))
-    plt.scatter(rw.x_values, rw.y_values,c = point_numbers,cmap=plt.cm.Reds)
+    plt.scatter(rw.x_values, rw.y_values,c = point_numbers,cmap=plt.cm.Reds,
+        edgecolor='none', s=15)
+#Making the start and end easier to track.
+    plt.scatter(0, 0, c="green", edgecolors='none', s=100)
+    plt.scatter(rw.x_values[-1], rw.y_values[-1], c='blue', edgecolors='none',
+        s=100)
     plt.title("Charting Random Ant Walk", fontsize=20, fontname='Times New Roman')
     plt.xlabel("X AXIS", fontsize=14)
     plt.ylabel("Y AXIS", fontsize=14)
